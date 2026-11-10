@@ -325,7 +325,7 @@ header.site-header {
 
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -389,7 +389,7 @@ header.site-header {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 2rem;
   align-items: stretch;
 }
@@ -534,7 +534,7 @@ header.site-header {
 
 .paddle-info {
   flex: 1;
-  min-width: 280px;
+  min-width: min(280px, 100%);
 }
 
 .paddle-info h4 {
@@ -666,7 +666,7 @@ header.site-header {
 /* Contact Details Card */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -787,12 +787,69 @@ footer.site-footer {
 }
 
 /* Responsive */
+/* Mid-width: drop the Chinese nav labels so the row never wraps */
+@media (max-width: 1100px) {
+  .site-nav { gap: 1.25rem; }
+  .site-nav .zh { display: none; }
+}
+
 @media (max-width: 768px) {
+  /* Header scrolls away on phones instead of covering a quarter of the screen */
+  header.site-header {
+    position: static;
+  }
+
   .header-inner {
     height: auto;
-    padding: 1rem 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0;
     flex-direction: column;
-    gap: 1rem;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  /* One row of links; scrolls sideways if it ever runs out of room */
+  .site-nav {
+    gap: 1.25rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0.75rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Overview = top of page, Support = footer: both still reachable */
+  .site-nav .nav-optional {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .site-nav {
+    gap: 0.75rem;
+  }
+
+  .nav-cta-long {
+    display: none;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+  }
+
+  .nav-cta-btn {
+    margin-left: auto;
+    padding: 0.35rem 0.85rem;
   }
   
   .footer-top {
@@ -807,6 +864,19 @@ footer.site-footer {
   
   .pricing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .card,
+  .pricing-card,
+  .contact-card,
+  .paddle-security-banner {
+    min-width: 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .paddle-badges {
+    flex-wrap: wrap;
   }
   
   .paddle-security-banner {

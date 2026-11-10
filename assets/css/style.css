@@ -6,21 +6,21 @@
 :root {
   --paper: #FAF6EF;
   --paper-deep: #F2EBDF;
-  --paper-card: #FFFFFF;
+  --paper-card: #FAF6EF; /* DESIGN.md: no pure white, cards are paper */
   --ink: #2A2520;
   --ink-soft: #4A423A;
-  --ink-muted: #7A7268;
+  --ink-muted: #736C63; /* DESIGN.md mist, 4.81:1 on paper */
   --line: #D9D1C2;
   --line-light: #EBE5D8;
   --tea: #82663F;
   --tea-light: #F4EFE6;
-  --moss: #547050;
-  --moss-light: #EEF3EE;
   --seal: #A8543A;
-  --seal-light: #FBF0ED;
-  --font-serif: -apple-system, BlinkMacSystemFont, "Noto Serif TC", "Source Han Serif TC", "Songti SC", Georgia, serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang SC", "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --footer-muted: #ADA498; /* 6.17:1 on ink */
+  --footer-faint: #A39A8D; /* 5.47:1 on ink */
+  /* DESIGN.md: Noto Serif TC for everything Chinese, Cormorant Garamond for English labels and numbers. No sans, no mono. */
+  --font-serif: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
+  --font-sans: "Noto Serif TC", "Songti TC", "PingFang TC", serif;
+  --font-display: "Cormorant Garamond", "Noto Serif TC", serif;
 }
 
 *, *::before, *::after {
@@ -41,7 +41,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  line-height: 1.75;
+  font-size: 1.0625rem; /* 17px body */
+  line-height: 1.85;
   background-color: var(--paper);
   color: var(--ink);
   min-height: 100vh;
@@ -52,7 +53,8 @@ body {
 /* Typography & Anti-Orphan */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  font-weight: 700;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--ink);
   text-wrap: balance;
   line-height: 1.35;
@@ -112,9 +114,10 @@ header.site-header {
   gap: 0.75rem;
   font-family: var(--font-serif);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .brand-badge {
@@ -124,7 +127,7 @@ header.site-header {
   background: var(--ink);
   color: var(--paper);
   padding: 2px 6px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
 }
 
 .site-nav {
@@ -134,6 +137,7 @@ header.site-header {
 }
 
 .site-nav a {
+  white-space: nowrap;
   color: var(--ink-soft);
   font-size: 0.925rem;
   text-decoration: none;
@@ -150,7 +154,7 @@ header.site-header {
   color: var(--paper) !important;
   padding: 0.5rem 1.25rem;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
   border: 1px solid var(--ink);
   transition: all 0.2s ease;
 }
@@ -163,20 +167,20 @@ header.site-header {
 
 /* Top Delivery Alert Bar */
 .delivery-notice-bar {
-  background: var(--moss-light);
-  border-bottom: 1px solid var(--moss);
-  color: var(--moss);
+  background: var(--paper-deep);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
   font-size: 0.85rem;
   padding: 0.6rem 1rem;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* Hero Section */
 .hero-section {
   padding: 4.5rem 0 3.5rem;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  background: var(--paper);
 }
 
 .hero-content {
@@ -193,16 +197,19 @@ header.site-header {
   border: 1px solid var(--line);
   padding: 0.35rem 0.85rem;
   font-size: 0.8rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.2em;
   color: var(--tea);
   margin-bottom: 1.5rem;
 }
 
 .hero-title {
   font-size: clamp(2rem, 4.5vw, 3.25rem);
-  line-height: 1.2;
+  line-height: 1.3;
   margin-bottom: 1.25rem;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 .hero-subtitle {
@@ -225,7 +232,7 @@ header.site-header {
   color: var(--paper) !important;
   padding: 0.85rem 2rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   border: 1px solid var(--ink);
   display: inline-flex;
   align-items: center;
@@ -249,7 +256,7 @@ header.site-header {
   color: var(--ink) !important;
   padding: 0.85rem 1.75rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   border: 1px solid var(--ink);
   display: inline-flex;
   align-items: center;
@@ -276,8 +283,16 @@ header.site-header {
   text-align: left;
 }
 
+/* DESIGN.md: an icon is one Chinese character in a thin frame */
 .delivery-guarantee-box .icon {
-  font-size: 1.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--tea);
+  color: var(--tea);
+  font-family: var(--font-serif);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -299,11 +314,12 @@ header.site-header {
 }
 
 .section-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--tea);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.3em;
   margin-bottom: 0.5rem;
 }
 
@@ -325,7 +341,7 @@ header.site-header {
 
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -338,10 +354,12 @@ header.site-header {
 }
 
 .card-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   color: var(--tea);
-  background: var(--tea-light);
+  border: 1px solid var(--line);
   padding: 2px 8px;
   align-self: flex-start;
   margin-bottom: 1rem;
@@ -376,8 +394,7 @@ header.site-header {
 
 .spec-list li::before {
   content: "✓";
-  color: var(--moss);
-  font-weight: 700;
+  color: var(--tea);
 }
 
 /* Pricing Section */
@@ -389,7 +406,7 @@ header.site-header {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 2rem;
   align-items: stretch;
 }
@@ -404,21 +421,21 @@ header.site-header {
 }
 
 .pricing-card.featured {
-  border: 2px solid var(--ink);
-  background: #FFFFFF;
+  border: 1px solid var(--ink);
+  background: var(--paper);
 }
 
 .pricing-badge {
   position: absolute;
   top: -12px;
   right: 20px;
-  background: var(--seal);
-  color: #FFFFFF;
-  font-size: 0.7rem;
-  font-family: var(--font-mono);
-  font-weight: 700;
+  background: var(--tea);
+  color: var(--paper);
+  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 500;
   padding: 3px 10px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -444,14 +461,15 @@ header.site-header {
 
 .price-currency {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-family: var(--font-display);
   color: var(--ink);
 }
 
 .price-amount {
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: var(--font-serif);
+  font-size: 3.25rem;
+  font-weight: 500;
+  font-family: var(--font-display);
+  font-variant-numeric: lining-nums tabular-nums;
   line-height: 1;
 }
 
@@ -470,15 +488,15 @@ header.site-header {
   font-size: 0.9rem;
   color: var(--ink-soft);
   margin-bottom: 0.75rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  line-height: 1.5;
+  position: relative;
+  padding-left: 1.4em;
+  line-height: 1.6;
 }
 
 .pricing-features li .check {
-  color: var(--moss);
-  font-weight: bold;
+  position: absolute;
+  left: 0;
+  color: var(--tea);
 }
 
 .btn-checkout {
@@ -486,7 +504,7 @@ header.site-header {
   padding: 0.9rem 1rem;
   text-align: center;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   border: 1px solid var(--ink);
   background: var(--ink);
   color: var(--paper) !important;
@@ -516,7 +534,7 @@ header.site-header {
   font-size: 0.75rem;
   color: var(--ink-muted);
   margin-top: 0.75rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
 }
 
 /* Paddle Security & MoR Assurance Banner */
@@ -534,7 +552,7 @@ header.site-header {
 
 .paddle-info {
   flex: 1;
-  min-width: 280px;
+  min-width: min(280px, 100%);
 }
 
 .paddle-info h4 {
@@ -561,7 +579,6 @@ header.site-header {
   align-items: center;
   gap: 0.4rem;
   font-size: 0.8rem;
-  font-weight: 600;
   color: var(--ink-soft);
 }
 
@@ -625,7 +642,7 @@ header.site-header {
 .legal-meta {
   font-size: 0.85rem;
   color: var(--ink-muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
 }
 
 .legal-body h2 {
@@ -655,8 +672,8 @@ header.site-header {
 }
 
 .legal-alert {
-  background: var(--tea-light);
-  border-left: 4px solid var(--tea);
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
   padding: 1rem 1.25rem;
   margin: 1.5rem 0;
   font-size: 0.9rem;
@@ -666,7 +683,7 @@ header.site-header {
 /* Contact Details Card */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -700,7 +717,7 @@ footer.site-footer {
   grid-template-columns: 2fr 1fr 1fr;
   gap: 3rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid #4A423A;
 }
 
 .footer-brand h3 {
@@ -710,7 +727,7 @@ footer.site-footer {
 }
 
 .footer-brand p {
-  color: #B8B0A4;
+  color: var(--footer-muted);
   font-size: 0.875rem;
   max-width: 420px;
   line-height: 1.6;
@@ -723,7 +740,7 @@ footer.site-footer {
   margin-bottom: 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
 }
 
 .footer-links {
@@ -735,7 +752,7 @@ footer.site-footer {
 }
 
 .footer-links a {
-  color: #B8B0A4;
+  color: var(--footer-muted);
   font-size: 0.875rem;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -755,9 +772,10 @@ footer.site-footer {
   gap: 1.5rem;
 }
 
-.footer-copy {
+.footer-copy,
+.footer-note {
   font-size: 0.8rem;
-  color: #8C8478;
+  color: var(--footer-faint);
 }
 
 .footer-legal-bar {
@@ -767,7 +785,7 @@ footer.site-footer {
 }
 
 .footer-legal-bar a {
-  color: #B8B0A4;
+  color: var(--footer-muted);
   font-size: 0.8rem;
   text-decoration: underline;
 }
@@ -779,20 +797,194 @@ footer.site-footer {
   width: 44px;
   height: 44px;
   background: var(--seal);
-  color: #FFFFFF;
+  color: var(--paper);
   font-family: var(--font-serif);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 1px;
 }
 
+.contact-link {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.hero-accent {
+  color: var(--tea);
+}
+
+.tm {
+  font-weight: 300;
+}
+
+.seal-mark.seal-sm {
+  width: 28px;
+  height: 28px;
+  font-size: 0.75rem;
+}
+
+.seal-mark.seal-md {
+  width: 32px;
+  height: 32px;
+  font-size: 0.8rem;
+}
+
+.footer-brand-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand-head h3 {
+  margin-bottom: 0;
+}
+
+.footer-bottom--flush {
+  padding-top: 0;
+}
+
+.section-gap {
+  margin-top: 2.5rem;
+}
+
+.contact-value {
+  margin-top: 0.75rem;
+}
+
+.contact-card .contact-note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.info-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.info-table th,
+.info-table td {
+  padding: 0.75rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.info-table th {
+  font-weight: 500;
+  width: 35%;
+  padding-right: 1rem;
+}
+
+.info-table td {
+  color: var(--ink-soft);
+}
+
+/* Anchor targets clear the sticky header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  background: var(--ink);
+  color: var(--paper) !important;
+  padding: 0.5rem 1rem;
+  z-index: 200;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--tea);
+  outline-offset: 3px;
+}
+
+footer.site-footer :focus-visible {
+  outline-color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .btn-primary:active { transform: none; }
+}
+
 /* Responsive */
+/* Below 1360px: drop the Chinese nav labels so the row never wraps */
+@media (max-width: 1360px) {
+  .site-nav { gap: 1.25rem; }
+  .site-nav .zh { display: none; }
+}
+
 @media (max-width: 768px) {
+  /* Header scrolls away on phones instead of covering a quarter of the screen */
+  header.site-header {
+    position: static;
+  }
+
   .header-inner {
     height: auto;
-    padding: 1rem 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0;
     flex-direction: column;
-    gap: 1rem;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  /* One row of links; scrolls sideways if it ever runs out of room */
+  .site-nav {
+    gap: 1.25rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0.75rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Overview = top of page, Support = footer: both still reachable */
+  .site-nav .nav-optional {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .site-nav {
+    gap: 0.75rem;
+  }
+
+  .nav-cta-long {
+    display: none;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+  }
+
+  .nav-cta-btn {
+    margin-left: auto;
+    padding: 0.35rem 0.85rem;
   }
   
   .footer-top {
@@ -807,6 +999,19 @@ footer.site-footer {
   
   .pricing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .card,
+  .pricing-card,
+  .contact-card,
+  .paddle-security-banner {
+    min-width: 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .paddle-badges {
+    flex-wrap: wrap;
   }
   
   .paddle-security-banner {

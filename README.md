@@ -1,10 +1,10 @@
 # Happiness Table™ Digital (幸福餐桌 數位知識智財系統)
 
-> **專為通過 Paddle (Merchant of Record) 審查與全球數位知識產品販售量身打造的官方網站。**
+> **為申請 Paddle (Merchant of Record) 與全球販售數位知識產品而建的官方網站。**
 
 ---
 
-## 📌 為什麼這個架構能 100% 通過 Paddle 審查？
+## 📌 對應 Paddle 審查重點的設計
 
 Paddle 審查團隊（歐洲/英國風控）主要查驗以下 5 大維度，本網站均已嚴格對應：
 
@@ -16,9 +16,9 @@ Paddle 審查團隊（歐洲/英國風控）主要查驗以下 5 大維度，本
    - **Pro ($149 USD)**: 12 章節線上影音大師課 + 四季儀式 SOP 手冊 (立即取得線上學習後台權限)
    - **All-Access ($299 USD/yr)**: 數位創作者會員社群 + 季度研討會
 3. **頁尾四大法定合規獨立子頁面 (Footer 4 Mandatory Legal Pages)**
-   - [`refund.html`](refund.html)：**14 天無條件全額退款保證 (14-Day Money Back Guarantee)**，寫明退款途徑與 24 小時回覆 SLA。
+   - [`refund.html`](refund.html)：**14 天內全額退款、不需說明理由 (14-Day Money Back Guarantee)**，寫明退款途徑與 24 小時回覆 SLA。
    - [`terms.html`](terms.html)：數位產品單人使用授權、著作權聲明與免責條款。
-   - [`privacy.html`](privacy.html)：GDPR / CCPA 合規，零追蹤 Cookie 政策，說明 Paddle 作為 Merchant of Record 的資料安全性。
+   - [`privacy.html`](privacy.html)：GDPR / CCPA 權利說明，不使用廣告與追蹤 Cookie，列出 Paddle、GitHub Pages、iCloud Mail 三個服務供應商。
    - [`contact.html`](contact.html)：清楚揭露創辦人姓名（Alex Chien / 簡家旗）、客服支援信箱與回覆承諾。
 4. **英中雙語專業展示 (Bilingual Clarity)**
    - 審查員打開即見流暢的專業商業英文，完全消除因在地文化術語造成的「產品描述不明確 (Vague Description)」拒件風險。

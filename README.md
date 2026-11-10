@@ -50,6 +50,24 @@ git push -u origin main
 
 ---
 
+## 🔎 SEO 與分享
+
+- 每頁都有 `canonical`、Open Graph、`twitter:card`；分享圖是 `assets/images/og-image.jpg`（1200×630）。
+- 首頁有 JSON-LD：`Organization`、三個方案的 `Product`／`Offer`（尚未開賣，標 `PreOrder`；接上 Paddle 後改 `InStock`），以及和頁面 FAQ 一致的 `FAQPage`。改 FAQ 文字時兩邊一起改。
+- `sitemap.xml` 列出 5 頁；`404.html` 用根目錄相對路徑（`/happytable-digital/...`）。
+- 專案頁網址放不了有效的 `robots.txt`（只認網域根目錄），sitemap 請在 Google Search Console 手動提交。
+
+### 換成自訂網域時要改的地方
+
+網址目前是 `https://alexchiachi.github.io/happytable-digital/`，出現在：
+
+1. 5 個頁面的 `canonical`、`og:url`、`og:image`
+2. `index.html` 的 JSON-LD
+3. `sitemap.xml`
+4. `404.html` 裡的 `/happytable-digital/` 前綴（自訂網域時改成 `/`）
+
+另外在倉庫根目錄加一個 `CNAME` 檔，內容寫網域。
+
 ## 💳 Paddle 過審後串接
 
 審核通過並在 Paddle 取得 Vendor ID / Product ID 後，將各方案按鈕切換為 Paddle 官方結帳組件：

@@ -28,6 +28,20 @@ Noto Serif TC＋Cormorant Garamond，不用 emoji。
 | 交付 | 付款後以 email 寄送 Google 雲端硬碟資料夾連結（分享給結帳信箱），通常幾分鐘、最遲 24 小時；影片在雲端硬碟直接播放 |
 | 作者佐證 | 首頁「About the Author」連到英文書 *The Architecture of Inner Flow*（Amazon） |
 
+## 新增電子書產品（幸福餐桌英文書，架構已備）
+
+`index.html` 定價區已有一張隱藏的電子書卡片（`#tier-ebook`）。書完成後依序：
+
+1. **內容**：卡片填上書名、價格、頁數、格式（EPUB／PDF）。
+2. **顯示**：刪掉卡片的 `hidden`；把 `.pricing-grid` 的 `pricing-grid--two` 拿掉，變回三欄。
+3. **預覽**：在 `#preview` 加一格書封與目錄（或試讀章節）。
+4. **作者區**：`#author` 加一句介紹這本書，連到 `#tier-ebook`。
+5. **結構化資料**：JSON-LD 加一個 `Product`（或 `Book`，`bookFormat` 用 `EBook`），`offers` 價格與 Starter／Pro 同格式。
+6. **條款與退款頁**：產品清單加上 ebook（目前寫的是 PDF guides、Notion templates、video courses）。
+7. **Paddle**：新增產品時稅務類別選 eBooks；送審時準備書稿原檔作為原創證明。
+8. **KDP**：這本書**不要加入 KDP Select**（Select 要求電子版只在 Amazon 販售）。
+   英文書 *The Architecture of Inner Flow* 已加入 KDP Select，所以只能放 Amazon 連結，不能在這裡販售。
+
 ## 寫文案時注意
 
 - 白話描述交付物：檔案格式、單元數、怎麼取得。不用抽象的方法論名稱當主標。

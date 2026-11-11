@@ -411,6 +411,33 @@
             <p class="instant-access-subtext">Digital delivery via Google Drive</p>
           </div>
 
+          <!--
+            Tier 3: 幸福餐桌英文電子書（架構，目前 hidden）
+            書完成後：
+              1. 填書名、副標、價格、頁數、格式（EPUB / PDF）、語言
+              2. 刪掉這張卡片的 hidden，並把上面 .pricing-grid 的 pricing-grid--two 拿掉（變回三欄）
+              3. 照 README「新增電子書產品」的清單同步 JSON-LD、預覽、條款與 Paddle 設定
+            這本書不能加入 KDP Select：Select 要求電子版只在 Amazon 販售。
+          -->
+          <div class="pricing-card" id="tier-ebook" hidden>
+            <h3 class="pricing-title">The Happiness Table Book</h3><!-- 暫定書名 -->
+            <p class="pricing-subtitle" lang="zh-Hant">幸福餐桌英文電子書</p>
+            <div class="price-display">
+              <span class="price-currency">$</span>
+              <span class="price-amount tabular">00</span><!-- 價格 -->
+              <span class="price-period">USD / One-time</span>
+            </div>
+            <ul class="pricing-features">
+              <li><span class="check">✓</span> <strong>English ebook</strong> (EPUB &amp; PDF, 000 pages)</li><!-- 頁數與格式 -->
+              <li><span class="check">✓</span> <strong>Written by Alex Chien</strong>, founder of Happiness Table™</li>
+              <li><span class="check">✓</span> <strong>Google Drive download link</strong> sent to your checkout email</li>
+              <li><span class="check">✓</span> Read on any e-reader, tablet, or computer</li>
+              <li><span class="check">✓</span> 14-Day 100% Money Back Guarantee</li>
+            </ul>
+            <a href="contact.html?plan=ebook" class="btn-checkout">Get the Ebook</a>
+            <p class="instant-access-subtext">Digital download via Google Drive</p>
+          </div>
+
         </div>
 
         <!-- Checkout provider -->

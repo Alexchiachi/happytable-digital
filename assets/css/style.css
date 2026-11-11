@@ -212,8 +212,18 @@ header.site-header {
   letter-spacing: 0.03em;
 }
 
+.hero-lede {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--ink);
+  max-width: 720px;
+  margin: 0 auto 1rem;
+}
+
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   color: var(--ink-soft);
   margin-bottom: 2rem;
   font-weight: 400;
@@ -397,6 +407,119 @@ header.site-header {
   color: var(--tea);
 }
 
+.author-note {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+/* About the author */
+.author-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.author-inner {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 900px;
+}
+
+.author-book img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.author-text .section-title {
+  margin-bottom: 1rem;
+}
+
+.author-text p {
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.author-text cite {
+  font-style: italic;
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .author-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .author-book {
+    max-width: 180px;
+  }
+}
+
+/* Preview Section */
+.preview-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.preview-item {
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.preview-frame {
+  border: 1px dashed var(--line);
+  background: var(--paper-deep);
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.preview-frame--page { aspect-ratio: 4 / 5; }
+.preview-frame--screen { aspect-ratio: 16 / 10; }
+
+.preview-item figcaption {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.preview-item figcaption strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.syllabus {
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.syllabus li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.preview-sample,
+.preview-note {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
 /* Pricing Section */
 .pricing-section {
   padding: 5rem 0;
@@ -537,7 +660,12 @@ header.site-header {
   font-family: var(--font-display);
 }
 
-/* Paddle Security & MoR Assurance Banner */
+.pricing-grid--two {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Checkout provider banner */
 .paddle-security-banner {
   margin-top: 3.5rem;
   background: var(--paper-card);

@@ -19,6 +19,15 @@
 視覺規範照大道至簡的 `DESIGN.md`：米白紙底、墨色字、單一茶褐強調色、直角細線、
 Noto Serif TC＋Cormorant Garamond，不用 emoji。
 
+## 產品、賣方與交付
+
+| 項目 | 內容 |
+| --- | --- |
+| 方案 | Starter Toolkit $39、Pro Masterclass $149，都是一次付費。不賣社群、直播、一對一指導（Paddle 不收不綁軟體的人工服務與社群存取） |
+| 賣方 | CHIEN CHIA CHI（簡家旗），個人賣家，台灣；筆名 Alex Chien。條款、聯絡頁、隱私權頁都寫這個名字，要和 Paddle 帳號一致 |
+| 交付 | 付款後以 email 寄送 Google 雲端硬碟資料夾連結（分享給結帳信箱），通常幾分鐘、最遲 24 小時；影片在雲端硬碟直接播放 |
+| 作者佐證 | 首頁「About the Author」連到英文書 *The Architecture of Inner Flow*（Amazon） |
+
 ## 寫文案時注意
 
 - 白話描述交付物：檔案格式、單元數、怎麼取得。不用抽象的方法論名稱當主標。
@@ -41,7 +50,7 @@ Noto Serif TC＋Cormorant Garamond，不用 emoji。
 ## SEO 與分享
 
 - 每頁都有 `canonical`、Open Graph、`twitter:card`；分享圖是 `assets/images/og-image.jpg`（1200×630）。
-- 首頁有 JSON-LD：`Organization`、三個方案的 `Product`／`Offer`（尚未開賣，標 `PreOrder`；接上 Paddle 後改 `InStock`），以及和頁面 FAQ 一致的 `FAQPage`。改 FAQ 文字時兩邊一起改。
+- 首頁有 JSON-LD：`Organization`、兩個方案的 `Product`／`Offer`（尚未開賣，標 `PreOrder`；接上 Paddle 後改 `InStock`），和頁面 FAQ 一致的 `FAQPage`，以及作者英文書的 `Book`。改 FAQ 文字時兩邊一起改。
 - `sitemap.xml` 列出 5 頁；`404.html` 用根目錄相對路徑（`/happytable-digital/...`）。
 - 專案頁網址放不了有效的 `robots.txt`（只認網域根目錄），sitemap 請在 Google Search Console 手動提交。
 
